@@ -152,6 +152,7 @@ func (c *Controller) updateSecrets(key string) error {
 				Name:      dstName,
 				Namespace: dstNamespace,
 			},
+			Type: srcSecret.Type,
 			Data: srcSecret.Data,
 		}
 		_, err = clientset.CoreV1().Secrets(dstNamespace).Update(
